@@ -1,5 +1,134 @@
 <!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NeeD Partner | <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NeeD Partner | Partner Portal</title><style>
+:root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 5%,#10365b 0,transparent 35%),#070b12;color:#f2f6fc;min-height:100vh}header{display:flex;align-items:center;justify-content:space-between;padding:22px max(24px,calc((100vw - 1100px)/2));border-bottom:1px solid #23334a;background:#080e18b8}.logo{font-size:30px;font-weight:900;letter-spacing:-2px;color:#dce6f2}.logo span{color:#28a7ff}small,.muted{color:#9cabc0}.shell{max-width:1100px;margin:65px auto;padding:0 24px;display:grid;grid-template-columns:1fr 440px;gap:75px;align-items:center}.eyebrow{color:#4bbaff;font-weight:700;letter-spacing:.18em;font-size:12px}.hero h1{font-size:clamp(38px,5vw,66px);line-height:1.08;margin:16px 0}.hero h1 em{color:#4ab7ff;font-style:normal}.hero p{font-size:17px;line-height:1.7;color:#aebdd0}.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.pill{border:1px solid #284a69;border-radius:99px;padding:9px 13px;color:#b6d6f4;font-size:12px}.panel{background:#101824;border:1px solid #2b3b50;border-radius:22px;padding:30px;box-shadow:0 20px 80px #0006}.panel h2{margin:0 0 6px;font-size:24px}.tabs{display:flex;background:#080e17;border-radius:10px;padding:4px;margin:24px 0 20px}.tabs button{flex:1;background:transparent;color:#9faec2;border:0;padding:12px;border-radius:8px;cursor:pointer}.tabs button.active{background:#1b3c5e;color:white}.field{margin-bottom:14px}label{display:block;font-size:12px;color:#b9c7d7;margin-bottom:7px}input,select{width:100%;background:#080f19;color:white;border:1px solid #33465e;border-radius:9px;padding:12px;font:inherit;outline:none}input:focus,select:focus{border-color:#46b5ff}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.primary{width:100%;background:linear-gradient(110deg,#148ce7,#39b7ff);color:#04101b;font-weight:800;border:0;border-radius:10px;padding:14px;cursor:pointer;font-size:15px}.primary:disabled{opacity:.55;cursor:wait}.link{background:none;border:0;color:#67c4ff;cursor:pointer;padding:12px 0}.notice{font-size:13px;line-height:1.5;margin:12px 0;padding:12px;border-radius:9px;background:#12283b;color:#bde2ff}.error{background:#401c29;color:#ffb8c7}.hide{display:none!important}.dashboard{max-width:980px;margin:55px auto;padding:0 24px}.dashboard h1{font-size:40px}.stat{border:1px solid #2b3b50;border-radius:15px;background:#101824;padding:24px;margin-top:20px}.status{display:inline-block;background:#49391a;color:#ffdb8d;padding:7px 11px;border-radius:99px;font-size:12px}.logout{width:auto;padding:10px 20px}.hint{font-size:11px;color:#8fa6bd;margin-top:5px}footer{text-align:center;color:#71839c;font-size:12px;padding:36px 20px}@media(max-width:850px){.shell{grid-template-columns:1fr;gap:30px;margin:35px auto}.hero h1{font-size:40px}.panel{padding:22px}.two{grid-template-columns:1fr}}
+</style></head><body><header><div class="logo">Nee<span>D</span> <small style="font-size:13px;letter-spacing:0;font-weight:500">PARTNER</small></div><small>A Product of GCR</small></header>
+<main id="authScreen" class="shell"><section class="hero"><div class="eyebrow">GROW WITH NEED CARS</div><h1>Partner with <em>NeeD Cars.</em></h1><p>Whether you own one car or manage a fleet, join NeeD Cars across India. Create your partner account and prepare your cars for verification.</p><div class="pills"><span class="pill">All India Network</span><span class="pill">Individual &amp; Fleet Partners</span><span class="pill">Verified Listings</span></div></section><section class="panel"><h2>Partner Portal</h2><p class="muted" style="margin:5px 0">Secure access for car owners and fleet partners</p><div class="tabs"><button id="loginTab" class="active" type="button">Sign In</button><button id="registerTab" type="button">Register</button></div>
+<form id="loginForm"><div class="field"><label for="loginEmail">Email Address</label><input id="loginEmail" type="email" autocomplete="email" required></div><div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" required></div><button id="loginBtn" class="primary" type="submit">Sign In</button><button id="resetBtn" class="link" type="button">Forgot password?</button></form>
+<form id="registerForm" class="hide"><div class="field"><label for="partnerType">Partner Type</label><select id="partnerType" required><option value="individual">Individual Car Owner</option><option value="company">Company / Fleet Operator</option></select></div><div class="field"><label for="fullName">Full Name</label><input id="fullName" maxlength="100" autocomplete="name" required></div><div class="field hide" id="companyField"><label for="company">Company / Fleet Name</label><input id="company" maxlength="120"></div><div class="field"><label for="phone">Mobile Number (India)</label><input id="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" required></div><div class="two"><div class="field"><label for="state">State / UT</label><select id="state" required><option value="">Select State</option></select></div><div class="field"><label for="city">City</label><select id="city" required disabled><option value="">Select a state first</option></select><div class="hint" id="cityHint">Cities load after selecting a state.</div></div></div><div class="field hide" id="otherCityField"><label for="otherCity">Your City Name</label><input id="otherCity" maxlength="80" placeholder="Enter your city"></div><div class="field"><label for="registerEmail">Email Address</label><input id="registerEmail" type="email" autocomplete="email" required></div><div class="field"><label for="registerPassword">Password (min. 8 characters)</label><input id="registerPassword" type="password" autocomplete="new-password" minlength="8" required></div><button id="registerBtn" class="primary" type="submit">Create Partner Account</button><p class="muted" style="font-size:12px">Registration does not automatically approve your account or car listings.</p></form><div id="message" class="notice hide" role="status" aria-live="polite"></div></section></main>
+<main id="dashboard" class="dashboard hide"><p class="eyebrow">NEED PARTNER DASHBOARD</p><h1 id="welcome">Welcome, Partner</h1><p class="muted" id="accountEmail"></p><div class="stat"><span class="status">Awaiting verification</span><h2>Partner onboarding</h2><p class="muted">Your login is active. Fleet submissions will be enabled after secure partner records, ownership rules, and administrator approval are configured.</p><p class="muted">For support: +91 9731055500</p></div><button class="primary logout" id="logoutBtn" type="button">Sign Out</button></main><footer>© NeeD Cars · A Product of GCR · Partner accounts require verification</footer>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script><script>
+const firebaseConfig={apiKey:'AIzaSyCuwgY2-XIq08K8BO7yGClEFjSvoUNJLtc',authDomain:'need-car.firebaseapp.com',projectId:'need-car',storageBucket:'need-car.firebasestorage.app',messagingSenderId:'550107299117',appId:'1:550107299117:web:7e6ff6445d681364df27a4'};
+firebase.initializeApp(firebaseConfig);const auth=firebase.auth();const db=firebase.firestore();const $=id=>document.getElementById(id);
+const states=['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli and Daman and Diu','Delhi','Jammu and Kashmir','Ladakh','Lakshadweep','Puducherry'];
+states.forEach(s=>$('state').add(new Option(s,s)));
+$('partnerType').addEventListener('change',()=>{const business=$('partnerType').value==='company';$('companyField').classList.toggle('hide',!business);$('company').required=business;if(!business)$('company').value=''});
+function updateOtherCity(){const other=$('city').value==='__other__';$('otherCityField').classList.toggle('hide',!other);$('otherCity').required=other;if(!other)$('otherCity').value=''}
+$('city').addEventListener('change',updateOtherCity);
+let cityRequest=0;
+$('state').addEventListener('change',async()=>{
+ const requestId=++cityRequest,state=$('state').value;
+ $('city').replaceChildren(new Option(state?'Loading cities...':'Select a state first',''));
+ $('city').disabled=true;$('cityHint').textContent=state?'Loading cities...':'Cities load after selecting a state.';
+ $('otherCityField').classList.add('hide');$('otherCity').required=false;$('otherCity').value='';
+ if(!state)return;
+ try{
+  const response=await fetch('https://countriesnow.space/api/v0.1/countries/state/cities',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:'India',state})});
+  if(!response.ok)throw new Error('City service unavailable');
+  const result=await response.json();if(requestId!==cityRequest)return;
+  if(result.error||!Array.isArray(result.data))throw new Error('Cities unavailable');
+  const names=[...new Set(result.data.filter(x=>typeof x==='string'&&x.trim()).map(x=>x.trim()))].sort((a,b)=>a.localeCompare(b));
+  $('city').replaceChildren(new Option('Select City',''));
+  names.forEach(name=>$('city').add(new Option(name,name)));
+  $('city').add(new Option('Other City (enter manually)','__other__'));
+  $('cityHint').textContent=names.length?`${names.length} cities loaded. Can't find yours? Select Other City.`:'Select Other City to enter your location.';
+ }catch(error){if(requestId!==cityRequest)return;$('city').replaceChildren(new Option('Select City',''),new Option('Other City (enter manually)','__other__'));$('cityHint').textContent='City list unavailable. Select Other City to continue.';}
+ $('city').disabled=false;
+});
+function showMessage(msg,error=false){const el=$('message');el.textContent=msg;el.classList.remove('hide');el.classList.toggle('error',error)}
+function toggle(mode){$('loginForm').classList.toggle('hide',mode!=='login');$('registerForm').classList.toggle('hide',mode!=='register');$('loginTab').classList.toggle('active',mode==='login');$('registerTab').classList.toggle('active',mode==='register');$('message').classList.add('hide')}
+$('loginTab').onclick=()=>toggle('login');$('registerTab').onclick=()=>toggle('register');
+$('loginForm').onsubmit=async e=>{e.preventDefault();$('loginBtn').disabled=true;try{await auth.signInWithEmailAndPassword($('loginEmail').value.trim(),$('loginPassword').value)}catch(err){showMessage(err.message,true)}finally{$('loginBtn').disabled=false}};
+// Store each partner profile in partners/{Firebase Auth UID}.
+let completingExistingProfile = false;
+let registrationInProgress = false;
+function showProfileCompletion(user) {
+  completingExistingProfile = true;
+  $('authScreen').classList.remove('hide');
+  $('dashboard').classList.add('hide');
+  toggle('register');
+  $('registerEmail').value = user.email || '';
+  $('registerEmail').readOnly = true;
+  $('registerPassword').required = false;
+  $('registerPassword').closest('.field').classList.add('hide');
+  $('fullName').value = user.displayName || $('fullName').value;
+  $('registerBtn').textContent = 'Submit Registration Request';
+  showMessage('Your login exists, but your partner registration is incomplete. Fill in your details to submit it for admin approval.');
+}
+function resetRegistrationMode() {
+  completingExistingProfile = false;
+  $('registerEmail').readOnly = false;
+  $('registerPassword').required = true;
+  $('registerPassword').closest('.field').classList.remove('hide');
+  $('registerBtn').textContent = 'Create Partner Account';
+}
+$('registerForm').onsubmit=async e=>{
+  e.preventDefault();
+  if (registrationInProgress) return;
+  registrationInProgress=true;
+  $('registerBtn').disabled=true;
+  let user;
+  try {
+    const city=$('city').value==='__other__'?$('otherCity').value.trim():$('city').value;
+    const name=$('fullName').value.trim();
+    const phone=$('phone').value.trim();
+    const partnerType=$('partnerType').value;
+    const companyName=$('company').value.trim();
+    if(!name||!phone||!$('state').value||!city) throw new Error('Please complete all required partner details.');
+    if(partnerType==='company'&&!companyName) throw new Error('Please enter the company name.');
+    const email=$('registerEmail').value.trim();
+    if(completingExistingProfile){
+      user=auth.currentUser;
+      if(!user||user.email.toLowerCase()!==email.toLowerCase()) throw new Error('Please sign in to your existing account again.');
+    } else {
+      const result=await auth.createUserWithEmailAndPassword(email,$('registerPassword').value);
+      user=result.user;
+    }
+    await user.updateProfile({displayName:name});
+    const profile={uid:user.uid,name,email:user.email,phone,partnerType,state:$('state').value,city,status:'pending',createdAt:firebase.firestore.FieldValue.serverTimestamp()};
+    if(partnerType==='company') profile.companyName=companyName;
+    // A failed Firestore write must not be reported as a completed registration.
+    await db.collection('partners').doc(user.uid).set(profile);
+    if(!completingExistingProfile){
+      try{await user.sendEmailVerification()}catch(err){console.warn('Email verification could not be sent',err)}
+    }
+    resetRegistrationMode();
+    showMessage('Registration request submitted successfully. Await admin approval.');
+    $('authScreen').classList.add('hide');
+    $('dashboard').classList.remove('hide');
+    $('welcome').textContent='Welcome, '+name;
+    $('accountEmail').textContent=user.email||'';
+  }catch(err){
+    showMessage('Registration not submitted: '+err.message,true);
+    if(user && !completingExistingProfile) {
+      // Auth account may exist even if Firestore write fails; keep form visible for retry.
+      completingExistingProfile=true;
+      $('registerEmail').readOnly=true;
+      $('registerPassword').required=false;
+      $('registerPassword').closest('.field').classList.add('hide');
+      $('registerBtn').textContent='Retry Registration Request';
+    }
+  }finally{registrationInProgress=false;$('registerBtn').disabled=false}
+};
+$('resetBtn').onclick=async()=>{const email=$('loginEmail').value.trim();if(!email){showMessage('Enter your email address first.',true);return}try{await auth.sendPasswordResetEmail(email);showMessage('If the address is eligible, a password reset email will be sent.')}catch(err){showMessage(err.message,true)}};
+$('logoutBtn').onclick=()=>auth.signOut();
+auth.onAuthStateChanged(async user=>{
+  if(!user){resetRegistrationMode();$('authScreen').classList.remove('hide');$('dashboard').classList.add('hide');return}
+  if(registrationInProgress)return;
+  try {
+    const snap=await db.collection('partners').doc(user.uid).get();
+    if(auth.currentUser?.uid!==user.uid||registrationInProgress)return;
+    if(!snap.exists){showProfileCompletion(user);return}
+    resetRegistrationMode();
+    $('authScreen').classList.add('hide');$('dashboard').classList.remove('hide');
+    $('welcome').textContent='Welcome, '+(snap.data().name||user.displayName||'Partner');
+    $('accountEmail').textContent=user.email||'';
+  }catch(err){
+    $('authScreen').classList.remove('hide');$('dashboard').classList.add('hide');
+    showMessage('Unable to load partner profile: '+err.message,true);
+  }
+});
+</script></body></html>Partner Portal</title><style>
 :root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 5%,#10365b 0,transparent 35%),#070b12;color:#f2f6fc;min-height:100vh}header{display:flex;align-items:center;justify-content:space-between;padding:22px max(24px,calc((100vw - 1100px)/2));border-bottom:1px solid #23334a;background:#080e18b8}.logo{font-size:30px;font-weight:900;letter-spacing:-2px;color:#dce6f2}.logo span{color:#28a7ff}small,.muted{color:#9cabc0}.shell{max-width:1100px;margin:65px auto;padding:0 24px;display:grid;grid-template-columns:1fr 440px;gap:75px;align-items:center}.eyebrow{color:#4bbaff;font-weight:700;letter-spacing:.18em;font-size:12px}.hero h1{font-size:clamp(38px,5vw,66px);line-height:1.08;margin:16px 0}.hero h1 em{color:#4ab7ff;font-style:normal}.hero p{font-size:17px;line-height:1.7;color:#aebdd0}.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.pill{border:1px solid #284a69;border-radius:99px;padding:9px 13px;color:#b6d6f4;font-size:12px}.panel{background:#101824;border:1px solid #2b3b50;border-radius:22px;padding:30px;box-shadow:0 20px 80px #0006}.panel h2{margin:0 0 6px;font-size:24px}.tabs{display:flex;background:#080e17;border-radius:10px;padding:4px;margin:24px 0 20px}.tabs button{flex:1;background:transparent;color:#9faec2;border:0;padding:12px;border-radius:8px;cursor:pointer}.tabs button.active{background:#1b3c5e;color:white}.field{margin-bottom:14px}label{display:block;font-size:12px;color:#b9c7d7;margin-bottom:7px}input,select{width:100%;background:#080f19;color:white;border:1px solid #33465e;border-radius:9px;padding:12px;font:inherit;outline:none}input:focus,select:focus{border-color:#46b5ff}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.primary{width:100%;background:linear-gradient(110deg,#148ce7,#39b7ff);color:#04101b;font-weight:800;border:0;border-radius:10px;padding:14px;cursor:pointer;font-size:15px}.primary:disabled{opacity:.55;cursor:wait}.link{background:none;border:0;color:#67c4ff;cursor:pointer;padding:12px 0}.notice{font-size:13px;line-height:1.5;margin:12px 0;padding:12px;border-radius:9px;background:#12283b;color:#bde2ff}.error{background:#401c29;color:#ffb8c7}.hide{display:none!important}.dashboard{max-width:980px;margin:55px auto;padding:0 24px}.dashboard h1{font-size:40px}.stat{border:1px solid #2b3b50;border-radius:15px;background:#101824;padding:24px;margin-top:20px}.status{display:inline-block;background:#49391a;color:#ffdb8d;padding:7px 11px;border-radius:99px;font-size:12px}.logout{width:auto;padding:10px 20px}.hint{font-size:11px;color:#8fa6bd;margin-top:5px}footer{text-align:center;color:#71839c;font-size:12px;padding:36px 20px}@media(max-width:850px){.shell{grid-template-columns:1fr;gap:30px;margin:35px auto}.hero h1{font-size:40px}.panel{padding:22px}.two{grid-template-columns:1fr}}
 </style></head><body><header><div class="logo">Nee<span>D</span> <small style="font-size:13px;letter-spacing:0;font-weight:500">PARTNER</small></div><small>A Product of GCR</small></header>
 <main id="authScreen" class="shell"><section class="hero"><div class="eyebrow">GROW WITH NEED CARS</div><h1>Partner with <em>NeeD Cars.</em></h1><p>Whether you own one car or manage a fleet, join NeeD Cars across India. Create your partner account and prepare your cars for verification.</p><div class="pills"><span class="pill">All India Network</span><span class="pill">Individual &amp; Fleet Partners</span><span class="pill">Verified Listings</span></div></section><section class="panel"><h2>Partner Portal</h2><p class="muted" style="margin:5px 0">Secure access for car owners and fleet partners</p><div class="tabs"><button id="loginTab" class="active" type="button">Sign In</button><button id="registerTab" type="button">Register</button></div>
